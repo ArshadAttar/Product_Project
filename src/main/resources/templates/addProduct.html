@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Add Product</title>
+  <style type="text/css">
+body {
+      background:linear-gradient(225deg,teal,black);
+      font-family: "Roboto", sans-serif;
+  	  display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+}
+
+.addbox{
+  width: 500px;
+  height: 600px;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  }
+
+h1 {
+  text-align: center;
+  padding-top: 15px;
+}
+
+form label {
+  display: flex;
+  margin-top: 20px;
+  font-size: 18px;
+  padding-left:41px;
+}
+
+form input {
+  width: 400px;
+  padding: 7px;
+  border: none;
+  border: 1px solid black;
+  border-radius: 6px;
+}
+.Submit {
+  width: 280px;
+  height: 35px;
+  margin-top: 20px;
+  border: none;
+  background-color: green;
+  color: white;
+  font-size: 18px;
+}
+</style>
+</head>
+<body>
+
+<div class="addbox">
+  <h1>Add Product Details</h1>
+  <center>
+    <form method="post" th:object="${productObject}" th:action="@{/addProducts}" >
+      <label>Enter Product Id</label>
+      <input type="text" th:field="*{productId}" />
+
+      <label>Enter Product Name</label>
+      <input type="text" th:field="*{productName}" />
+
+      <label>Enter Price</label>
+      <input type="text" th:field="*{price}"  />
+
+      <label>Enter Selling Price</label>
+      <input type="text"  th:field="*{sellingPrice}"  />
+
+      <label>Enter Quantity</label>
+      <input type="text" th:field="*{productQty}" />
+
+      <input type="Submit" class="Submit" value="Add Product" />
+    </form>
+  </center>
+</div>
+</form>
+</body>
+</html>
